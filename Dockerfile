@@ -8,5 +8,7 @@ COPY . .
 RUN npm run build
 # second stage run. The first stage finish here. No need to use "as blablabla".
 FROM nginx
+# expose the port 80 to the ouside
+EXPOSE 80
 # from docker hub instructions, copy files from builder stage to run stage
 COPY --from=builder /app/build /usr/share/nginx/html
